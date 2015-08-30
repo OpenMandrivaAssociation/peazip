@@ -2,8 +2,8 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	5.2.1
-Release:	2
+Version:	5.5.2
+Release:	1
 License:	LGPLv3+
 Group:		File tools
 Url:		http://peazip.sourceforge.net/peazip-linux.html
