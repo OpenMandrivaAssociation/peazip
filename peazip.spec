@@ -14,7 +14,7 @@ Source1:	altconf.txt
 BuildRequires:	dos2unix
 BuildRequires:	icoutils
 BuildRequires:	lazarus
-BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	qt5-devel
 BuildRequires:	p7zip
 BuildRequires:	unzip
 
@@ -44,7 +44,7 @@ lazbuild --lazarusdir=%{_libdir}/lazarus \
 %ifarch %{x86_64}
 	--cpu=x86_64 \
 %endif
-	--widgetset=gtk2 \
+	--widgetset=qt5 \
 	-B project_peach.lpi project_pea.lpi
 
 %install
