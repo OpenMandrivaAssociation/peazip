@@ -2,7 +2,7 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	5.5.2
+Version:	7.7.0
 Release:	1
 License:	LGPLv3+
 Group:		File tools
@@ -10,9 +10,14 @@ Url:		http://peazip.sourceforge.net/peazip-linux.html
 Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.src.zip
 # configure to run in users home appdata
 Source1:	altconf.txt
+
+BuildRequires:	dos2unix
 BuildRequires:	icoutils
-BuildRequires:	lazarus >= 1.0.8
+BuildRequires:	lazarus
 BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	p7zip
+BuildRequires:	unzip
+
 Requires:	p7zip
 Requires:	upx >= 3.09
 
@@ -32,6 +37,7 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 %prep
 %setup -q -n %{name}-%{version}.src
 chmod +w res/lang
+dos2unix readme*
 
 %build
 lazbuild -B project_peach.lpi project_pea.lpi project_gwrap.lpi
