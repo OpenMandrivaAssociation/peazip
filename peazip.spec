@@ -2,7 +2,7 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	5.5.2
+Version:	7.7.0
 Release:	1
 License:	LGPLv3+
 Group:		File tools
@@ -10,9 +10,14 @@ Url:		http://peazip.sourceforge.net/peazip-linux.html
 Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.src.zip
 # configure to run in users home appdata
 Source1:	altconf.txt
+
+BuildRequires:	dos2unix
 BuildRequires:	icoutils
-BuildRequires:	lazarus >= 1.0.8
+BuildRequires:	lazarus
 BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	p7zip
+BuildRequires:	unzip
+
 Requires:	p7zip
 Requires:	upx >= 3.09
 
@@ -25,35 +30,43 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 %{_bindir}/*
 %{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/applications/*.desktop
-%{_libdir}/%{name}
+%{_datadir}/%{name}/
 
 #----------------------------------------------------------------------------
 
 %prep
 %setup -q -n %{name}-%{version}.src
 chmod +w res/lang
+dos2unix readme*
 
 %build
-lazbuild -B project_peach.lpi project_pea.lpi project_gwrap.lpi
+lazbuild --lazarusdir=%{_libdir}/lazarus \
+%ifarch %{x86_64}
+	--cpu=x86_64 \
+%endif
+	--widgetset=gtk2 \
+	-B project_peach.lpi project_pea.lpi
 
 %install
 mkdir -p %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{_libdir}/%{name}
+mkdir -p %{buildroot}%{_datadir}/%{name}
 rm -rf res/icons
-cp -r res %{buildroot}%{_libdir}/%{name}
-cp %{SOURCE1} %{buildroot}%{_libdir}/%{name}/res
+cp -r res %{buildroot}%{_datadir}/%{name}
+cp %{SOURCE1} %{buildroot}%{_datadir}/%{name}/res
 
 #install helper apps
-mkdir -p %{buildroot}%{_libdir}/%{name}/res/{7z,upx}
-ln -s %{_bindir}/7z %{buildroot}%{_libdir}/%{name}/res/7z
-ln -s %{_bindir}/upx %{buildroot}%{_libdir}/%{name}/res/upx
+mkdir -p %{buildroot}%{_datadir}/%{name}/res/{7z,upx}
+ln -s %{_bindir}/7z  %{buildroot}%{_datadir}/%{name}/res/7z
+ln -s %{_bindir}/upx  %{buildroot}%{_datadir}/%{name}/res/upx
 
-install pea %{buildroot}%{_libdir}/%{name}/res
-ln -s %{_libdir}/%{name}/res/pea %{buildroot}%{_bindir}/pea
-install %{name} %{buildroot}%{_libdir}/%{name}
-ln -s %{_libdir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
-install pealauncher %{buildroot}%{_libdir}/%{name}/res
-ln -s %{_libdir}/%{name}/res/pealauncher %{buildroot}%{_bindir}/pealauncher
+install pea %{buildroot}%{_datadir}/%{name}/res
+ln -s %{_datadir}/%{name}/res/pea %{buildroot}%{_bindir}/pea
+install %{name} %{buildroot}%{_datadir}/%{name}
+ln -s %{_datadir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
+
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
+install -m 0644 FreeDesktop_integration/peazip.png %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{name}.png
+rm -rf %{buildroot}%{_datadir}/%{name}/res/icons
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop <<EOF
@@ -67,8 +80,3 @@ Type=Application
 Terminal=false
 Categories=GTK;KDE;Utility;System;Archiving;
 EOF
-
-mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
-icotool -x -i 1 -o %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{name}.png %{name}.ico
-rm -rf %{buildroot}%{_libdir}/%{name}/res/icons
-
