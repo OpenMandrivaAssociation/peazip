@@ -40,7 +40,12 @@ chmod +w res/lang
 dos2unix readme*
 
 %build
-lazbuild -B project_peach.lpi project_pea.lpi project_gwrap.lpi
+lazbuild --lazarusdir=%{_libdir}/lazarus \
+%ifarch %{x86_64}
+	--cpu=x86_64 \
+%endif
+	--widgetset=gtk2 \
+	-B project_peach.lpi project_pea.lpi
 
 %install
 mkdir -p %{buildroot}%{_bindir}
