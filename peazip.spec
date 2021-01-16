@@ -10,6 +10,7 @@ Url:		http://peazip.sourceforge.net/peazip-linux.html
 Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.src.zip
 # configure to run in users home appdata
 Source1:	altconf.txt
+Patch0:		peazip-fix_aarch64.patch
 
 BuildRequires:	dos2unix
 BuildRequires:	icoutils
@@ -36,6 +37,7 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 
 %prep
 %setup -q -n %{name}-%{version}.src
+%autopatch -p1
 chmod +w res/lang
 dos2unix readme*
 
