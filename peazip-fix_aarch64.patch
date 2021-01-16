@@ -1,7 +1,7 @@
-diff -purN peazip-6.6.1.src.orig/rmd160.pas peazip-6.6.1.src/rmd160.pas
---- peazip-6.6.1.src.orig/rmd160.pas	2018-11-27 15:51:25.463922229 +0100
-+++ peazip-6.6.1.src/rmd160.pas	2018-11-27 15:55:25.321937426 +0100
-@@ -125,7 +125,7 @@ implementation
+diff -uraN peazip-7.7.0.src/rmd160.pas omv-peazip-7.7.0.src/rmd160.pas
+--- peazip-7.7.0.src/rmd160.pas	2020-09-02 17:38:18.000000000 +0200
++++ omv-peazip-7.7.0.src/rmd160.pas	2021-01-16 15:29:27.274050541 +0100
+@@ -125,7 +125,7 @@
  
  
  {$ifdef FPC}
@@ -10,10 +10,10 @@ diff -purN peazip-6.6.1.src.orig/rmd160.pas peazip-6.6.1.src/rmd160.pas
      {$asmmode intel}
    {$endif}
  {$endif}
-diff -purN peazip-6.6.1.src.orig/tsc.pas peazip-6.6.1.src/tsc.pas
---- peazip-6.6.1.src.orig/tsc.pas	2018-11-27 15:51:25.463922229 +0100
-+++ peazip-6.6.1.src/tsc.pas	2018-11-27 16:05:25.150978582 +0100
-@@ -95,7 +95,7 @@ function  _CheckRDTSC: boolean;
+diff -uraN peazip-7.7.0.src/tsc.pas omv-peazip-7.7.0.src/tsc.pas
+--- peazip-7.7.0.src/tsc.pas	2017-11-10 17:59:40.000000000 +0100
++++ omv-peazip-7.7.0.src/tsc.pas	2021-01-16 15:30:10.811210052 +0100
+@@ -95,7 +95,7 @@
  
  implementation
  
