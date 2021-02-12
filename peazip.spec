@@ -2,7 +2,7 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	7.7.0
+Version:	7.7.1
 Release:	1
 License:	LGPLv3+
 Group:		File tools
@@ -15,11 +15,14 @@ BuildRequires:	dos2unix
 BuildRequires:	icoutils
 BuildRequires:	lazarus
 BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(libzstd)
+BuildRequires:	pkgconfig(libbrotlicommon)
 BuildRequires:	p7zip
 BuildRequires:	unzip
 
 Requires:	p7zip
 Requires:	upx >= 3.09
+
 
 %description
 PeaZip is a free cross-platform file archiver that provides an unified portable
