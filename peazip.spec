@@ -3,7 +3,7 @@
 Summary:	File and archive manager
 Name:		peazip
 Version:	7.7.1
-Release:	1
+Release:	2
 License:	LGPLv3+
 Group:		File tools
 Url:		http://peazip.sourceforge.net/peazip-linux.html
