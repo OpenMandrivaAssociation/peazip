@@ -2,7 +2,7 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	7.9.0
+Version:	8.0.0
 Release:	1
 License:	LGPLv3+
 Group:		File tools
