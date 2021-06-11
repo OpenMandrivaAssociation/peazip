@@ -47,7 +47,7 @@ lazbuild --lazarusdir=%{_libdir}/lazarus \
 %ifarch %{x86_64}
 	--cpu=x86_64 \
 %endif
-	--widgetset=gtk2 \
+	--widgetset=qt5 \
 	-B project_peach.lpi project_pea.lpi
 
 %install
