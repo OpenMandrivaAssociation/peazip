@@ -29,9 +29,8 @@ PeaZip is a free cross-platform file archiver that provides an unified portable
 GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 
 %files
-%doc readme copying.txt
 %{_bindir}/*
-%{_datadir}/icons/hicolor/*/apps/*.png
+#{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/
 
