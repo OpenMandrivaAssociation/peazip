@@ -39,7 +39,7 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 
 %prep
 %setup -q -n %{name}-%{version}.src
-chmod +w res/lang
+#chmod +w res/lang
 dos2unix readme*
 
 %build
