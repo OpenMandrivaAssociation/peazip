@@ -29,9 +29,8 @@ PeaZip is a free cross-platform file archiver that provides an unified portable
 GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 
 %files
-%doc readme copying.txt
 %{_bindir}/*
-%{_datadir}/icons/hicolor/*/apps/*.png
+#{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/
 
@@ -39,7 +38,7 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 
 %prep
 %setup -q -n %{name}-%{version}.src
-chmod +w res/lang
+#chmod +w res/lang
 dos2unix readme*
 
 %build
@@ -67,9 +66,9 @@ ln -s %{_datadir}/%{name}/res/pea %{buildroot}%{_bindir}/pea
 install %{name} %{buildroot}%{_datadir}/%{name}
 ln -s %{_datadir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
 
-mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
-install -m 0644 FreeDesktop_integration/peazip.png %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{name}.png
-rm -rf %{buildroot}%{_datadir}/%{name}/res/icons
+#mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
+#install -m 0644 FreeDesktop_integration/peazip.png %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{name}.png
+#rm -rf %{buildroot}%{_datadir}/%{name}/res/icons
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop <<EOF
