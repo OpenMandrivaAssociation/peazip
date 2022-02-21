@@ -30,7 +30,7 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 
 %files
 %{_bindir}/*
-#{_datadir}/icons/hicolor/*/apps/*.png
+%{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/
 
@@ -69,6 +69,9 @@ ln -s %{_datadir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
 #mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
 #install -m 0644 FreeDesktop_integration/peazip.png %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{name}.png
 #rm -rf %{buildroot}%{_datadir}/%{name}/res/icons
+
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
+icotool -x -i 1 -o %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{name}.png %{name}.ico
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop <<EOF
