@@ -21,7 +21,9 @@ BuildRequires:	p7zip
 BuildRequires:	unzip
 
 Requires:	p7zip
-Requires:	upx >= 3.09
+Requires:	upx
+Requires:	brotli
+Requires:	zstd
 
 
 %description
@@ -60,6 +62,8 @@ cp %{SOURCE1} %{buildroot}%{_datadir}/%{name}/res
 mkdir -p %{buildroot}%{_datadir}/%{name}/res/{7z,upx}
 ln -s %{_bindir}/7z  %{buildroot}%{_datadir}/%{name}/res/7z
 ln -s %{_bindir}/upx  %{buildroot}%{_datadir}/%{name}/res/upx
+ln -s %{_bindir}/zstd %{buildroot}%{_datadir}/%{name}/res/bin/zstd/zstd
+ln -s %{_bindir}/brotli %{buildroot}%{_datadir}/%{name}/res/bin/brotli/brotli
 
 install pea %{buildroot}%{_datadir}/%{name}/res
 ln -s %{_datadir}/%{name}/res/pea %{buildroot}%{_bindir}/pea
