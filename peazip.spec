@@ -2,7 +2,7 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	8.4.0
+Version:	8.5.0
 Release:	1
 License:	LGPLv3+
 Group:		File tools
@@ -21,7 +21,9 @@ BuildRequires:	p7zip
 BuildRequires:	unzip
 
 Requires:	p7zip
-Requires:	upx >= 3.09
+Requires:	upx
+Requires:	brotli
+Requires:	zstd
 
 
 %description
@@ -30,7 +32,7 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 
 %files
 %{_bindir}/*
-#{_datadir}/icons/hicolor/*/apps/*.png
+%{_datadir}/icons/hicolor/*/apps/*.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/
 
@@ -60,6 +62,8 @@ cp %{SOURCE1} %{buildroot}%{_datadir}/%{name}/res
 mkdir -p %{buildroot}%{_datadir}/%{name}/res/{7z,upx}
 ln -s %{_bindir}/7z  %{buildroot}%{_datadir}/%{name}/res/7z
 ln -s %{_bindir}/upx  %{buildroot}%{_datadir}/%{name}/res/upx
+#ln -s %{_bindir}/zstd %{buildroot}%{_datadir}/%{name}/res/bin/zstd/zstd
+#ln -s %{_bindir}/brotli %{buildroot}%{_datadir}/%{name}/res/bin/brotli/brotli
 
 install pea %{buildroot}%{_datadir}/%{name}/res
 ln -s %{_datadir}/%{name}/res/pea %{buildroot}%{_bindir}/pea
@@ -69,6 +73,9 @@ ln -s %{_datadir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
 #mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
 #install -m 0644 FreeDesktop_integration/peazip.png %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{name}.png
 #rm -rf %{buildroot}%{_datadir}/%{name}/res/icons
+
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
+icotool -x -i 1 -o %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{name}.png %{name}.ico
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop <<EOF
