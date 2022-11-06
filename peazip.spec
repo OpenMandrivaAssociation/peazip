@@ -44,12 +44,8 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 dos2unix readme*
 
 %build
-lazbuild --lazarusdir=%{_libdir}/lazarus \
-%ifarch %{x86_64}
-	--cpu=x86_64 \
-%endif
-	--widgetset=gtk2 \
-	-B project_peach.lpi project_pea.lpi
+lazbuild --lazarusdir=%{_libdir}/lazarus --widgetset=gtk2 --build-all project_pea.lpi && [ -f pea ]
+lazbuild --lazarusdir=%{_libdir}/lazarus --widgetset=gtk2 --build-all project_peach.lpi && [ -f peazip ]
 
 %install
 mkdir -p %{buildroot}%{_bindir}
