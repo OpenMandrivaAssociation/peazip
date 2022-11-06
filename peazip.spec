@@ -44,6 +44,7 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 dos2unix readme*
 
 %build
+cd dev
 lazbuild --lazarusdir=%{_libdir}/lazarus --widgetset=gtk2 --build-all project_pea.lpi && [ -f pea ]
 lazbuild --lazarusdir=%{_libdir}/lazarus --widgetset=gtk2 --build-all project_peach.lpi && [ -f peazip ]
 
