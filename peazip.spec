@@ -63,8 +63,8 @@ ln -s %{_bindir}/upx  %{buildroot}%{_datadir}/%{name}/res/upx
 #ln -s %{_bindir}/brotli %{buildroot}%{_datadir}/%{name}/res/bin/brotli/brotli
 
 
-install -m755 dev/pea %{buildroot}%{_peazipinstalldir}/res
-ln -s %{_peazipinstalldir}/res/pea %{buildroot}%{_bindir}/pea
+install -m755 dev/pea %{buildroot}%{_datadir}/%{name}/res
+ln -s %{_datadir}/%{name}/res/pea %{buildroot}%{_bindir}/pea
 
 install %{name} %{buildroot}%{_datadir}/%{name}
 ln -s %{_datadir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
