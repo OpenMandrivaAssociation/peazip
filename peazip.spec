@@ -66,7 +66,7 @@ ln -s %{_bindir}/upx  %{buildroot}%{_datadir}/%{name}/res/upx
 install -m755 dev/pea %{buildroot}%{_datadir}/%{name}/res
 ln -s %{_datadir}/%{name}/res/pea %{buildroot}%{_bindir}/pea
 
-install %{name} %{buildroot}%{_datadir}/%{name}
+install -m755 dev/%{name} %{buildroot}%{_datadir}/%{name}
 ln -s %{_datadir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
 
 #mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
