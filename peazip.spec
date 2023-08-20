@@ -15,6 +15,7 @@ BuildRequires:	dos2unix
 BuildRequires:	icoutils
 BuildRequires:	lazarus
 BuildRequires:	%mklibname Qt5Pas
+BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(libzstd)
 BuildRequires:	pkgconfig(libbrotlicommon)
 BuildRequires:	7zip
@@ -24,6 +25,7 @@ Requires:	7zip
 Requires:	upx
 Requires:	brotli
 Requires:	zstd
+Requires:	%mklibname Qt5Pas
 
 
 %description
