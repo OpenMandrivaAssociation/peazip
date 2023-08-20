@@ -2,7 +2,7 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	8.5.0
+Version:	9.4.0
 Release:	1
 License:	LGPLv3+
 Group:		File tools
@@ -14,13 +14,13 @@ Source1:	altconf.txt
 BuildRequires:	dos2unix
 BuildRequires:	icoutils
 BuildRequires:	lazarus
-BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	%mklibname Qt5Pas
 BuildRequires:	pkgconfig(libzstd)
 BuildRequires:	pkgconfig(libbrotlicommon)
-BuildRequires:	p7zip
+BuildRequires:	7zip
 BuildRequires:	unzip
 
-Requires:	p7zip
+Requires:	7zip
 Requires:	upx
 Requires:	brotli
 Requires:	zstd
@@ -39,8 +39,8 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q -n %{name}-%{version}.src
-#chmod +w res/lang
+%setup -q -n %{name}-%{version}.src/dev
+#chmod +w ../res/lang
 dos2unix readme*
 
 %build
@@ -48,14 +48,14 @@ lazbuild --lazarusdir=%{_libdir}/lazarus \
 %ifarch %{x86_64}
 	--cpu=x86_64 \
 %endif
-	--widgetset=gtk2 \
+	--widgetset=qt5 \
 	-B project_peach.lpi project_pea.lpi
 
 %install
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_datadir}/%{name}
-rm -rf res/icons
-cp -r res %{buildroot}%{_datadir}/%{name}
+rm -rf ../res/icons
+cp -r ../res %{buildroot}%{_datadir}/%{name}
 cp %{SOURCE1} %{buildroot}%{_datadir}/%{name}/res
 
 #install helper apps
