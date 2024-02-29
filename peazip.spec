@@ -2,7 +2,7 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	9.6.0
+Version:	9.7.1
 Release:	1
 License:	LGPLv3+
 Group:		File tools
@@ -10,11 +10,10 @@ Url:		http://peazip.sourceforge.net/peazip-linux.html
 Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.src.zip
 # configure to run in users home appdata
 Source1:	altconf.txt
-
+Patch1:		metadark.patch
 BuildRequires:	dos2unix
 BuildRequires:	icoutils
 BuildRequires:	lazarus
-BuildRequires:	%mklibname Qt5Pas
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(libzstd)
 BuildRequires:	pkgconfig(libbrotlicommon)
@@ -25,7 +24,6 @@ Requires:	7zip
 Requires:	upx
 Requires:	brotli
 Requires:	zstd
-Requires:	%mklibname Qt5Pas
 
 
 %description
@@ -41,35 +39,36 @@ GUI for many Open Source technologies like 7-Zip, FreeArc, PAQ, UPX...
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q -n %{name}-%{version}.src/dev
+%autosetup -p1 -n %{name}-%{version}.src
 #chmod +w ../res/lang
 dos2unix readme*
 
 %build
+pushd dev
 lazbuild --lazarusdir=%{_libdir}/lazarus \
 %ifarch %{x86_64}
 	--cpu=x86_64 \
 %endif
-	--widgetset=qt5 \
+	--widgetset=qt6 \
 	-B project_peach.lpi project_pea.lpi
 
 %install
 mkdir -p %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{_datadir}/%{name}
-rm -rf ../res/icons
-cp -r ../res %{buildroot}%{_datadir}/%{name}
+mkdir -p %{buildroot}%{_datadir}/%{name}/res
+rm -rf res/icons
+cp -r res/share %{buildroot}%{_datadir}/%{name}/res
 cp %{SOURCE1} %{buildroot}%{_datadir}/%{name}/res
 
 #install helper apps
-mkdir -p %{buildroot}%{_datadir}/%{name}/res/{7z,upx}
-ln -s %{_bindir}/7z  %{buildroot}%{_datadir}/%{name}/res/7z
-ln -s %{_bindir}/upx  %{buildroot}%{_datadir}/%{name}/res/upx
+#mkdir -p %{buildroot}%{_datadir}/%{name}/res/{7z,upx}
+#ln -s %{_bindir}/7z  %{buildroot}%{_datadir}/%{name}/res/7z
+#ln -s %{_bindir}/upx  %{buildroot}%{_datadir}/%{name}/res/upx
 #ln -s %{_bindir}/zstd %{buildroot}%{_datadir}/%{name}/res/bin/zstd/zstd
 #ln -s %{_bindir}/brotli %{buildroot}%{_datadir}/%{name}/res/bin/brotli/brotli
 
-install pea %{buildroot}%{_datadir}/%{name}/res
+install dev/pea %{buildroot}%{_datadir}/%{name}/res
 ln -s %{_datadir}/%{name}/res/pea %{buildroot}%{_bindir}/pea
-install %{name} %{buildroot}%{_datadir}/%{name}
+install dev/%{name} %{buildroot}%{_datadir}/%{name}
 ln -s %{_datadir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
 
 #mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
@@ -77,6 +76,7 @@ ln -s %{_datadir}/%{name}/%{name} %{buildroot}%{_bindir}/%{name}
 #rm -rf %{buildroot}%{_datadir}/%{name}/res/icons
 
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/256x256/apps
+pushd dev
 icotool -x -i 1 -o %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{name}.png %{name}.ico
 
 mkdir -p %{buildroot}%{_datadir}/applications
