@@ -1,0 +1,20 @@
+--- peazip-9.7.1.src/dev/peach.pas.orig	2024-02-29 22:14:18.778434882 +0000
++++ peazip-9.7.1.src/dev/peach.pas	2024-02-29 22:15:16.329586303 +0000
+@@ -57970,7 +57970,7 @@
+ 
+ procedure set_rowselect;
+ begin
+-{$IFDEF LCLQT5}rowselect:=true;{$ENDIF}//workaround, deselecting first subitem in listview does not deselect the row in Qt5, which leads to behavior of the component which is not consistent with oter widget.sets
++{$IFDEF LCLQT6}rowselect:=true;{$ENDIF}//workaround, deselecting first subitem in listview does not deselect the row in Qt5, which leads to behavior of the component which is not consistent with oter widget.sets
+ Form_peach.ListView1.Rowselect:=rowselect;
+ Form_peach.mrowselect.checked:=rowselect;
+ Form_peach.pmrow.checked:=rowselect;
+@@ -74610,7 +74610,7 @@
+    //Qt4 and Qt5 the workaround is disabled as with tested Lazarus/PFC versions it crashes chaging at runtime back to vsReport (which is default visual style), this bug also breaks changing visual style back to default vsReport at runtime for Qt versions
+    {$IFDEF LCLQT}
+    {$ELSE}
+-      {$IFDEF LCLQT5}
++      {$IFDEF LCLQT6}
+       {$ELSE}
+       Form_peach.ListView1.ViewStyle:=vsIcon;
+       {$ENDIF}

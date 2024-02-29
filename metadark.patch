@@ -1,0 +1,47 @@
+--- peazip-9.7.1.src/dev/project_pea.lpi.orig	2024-02-29 17:11:22.714091347 +0000
++++ peazip-9.7.1.src/dev/project_pea.lpi	2024-02-29 17:12:07.798599355 +0000
+@@ -28,13 +28,10 @@
+         <Mode0 Name="default"/>
+       </Modes>
+     </RunParams>
+-    <RequiredPackages Count="2">
++    <RequiredPackages Count="1">
+       <Item1>
+-        <PackageName Value="MetaDarkStyle"/>
+-      </Item1>
+-      <Item2>
+         <PackageName Value="LCL"/>
+-      </Item2>
++      </Item1>
+     </RequiredPackages>
+     <Units Count="52">
+       <Unit0>
+--- peazip-9.7.1.src/dev/project_peach.lpi.orig	2024-02-29 17:11:33.591731316 +0000
++++ peazip-9.7.1.src/dev/project_peach.lpi	2024-02-29 17:11:52.869093354 +0000
+@@ -29,21 +29,18 @@
+         <Mode0 Name="default"/>
+       </Modes>
+     </RunParams>
+-    <RequiredPackages Count="4">
++    <RequiredPackages Count="3">
+       <Item1>
+-        <PackageName Value="MetaDarkStyle"/>
+-      </Item1>
+-      <Item2>
+         <PackageName Value="SynEdit"/>
+         <MinVersion Major="1" Valid="True"/>
++      </Item1>
++      <Item2>
++        <PackageName Value="LCL"/>
+       </Item2>
+       <Item3>
+-        <PackageName Value="LCL"/>
+-      </Item3>
+-      <Item4>
+         <PackageName Value="FCL"/>
+         <MinVersion Major="1" Valid="True"/>
+-      </Item4>
++      </Item3>
+     </RequiredPackages>
+     <Units Count="200">
+       <Unit0>
