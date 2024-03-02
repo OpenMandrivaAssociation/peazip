@@ -3,7 +3,7 @@
 Summary:	File and archive manager
 Name:		peazip
 Version:	9.7.1
-Release:	1
+Release:	2
 License:	LGPLv3+
 Group:		File tools
 Url:		http://peazip.sourceforge.net/peazip-linux.html
@@ -60,14 +60,13 @@ mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_datadir}/%{name}/res
 rm -rf res/icons
 cp -r res/share %{buildroot}%{_datadir}/%{name}/res
+cp -r res/conf %{buildroot}%{_datadir}/%{name}/res
 cp %{SOURCE1} %{buildroot}%{_datadir}/%{name}/res
 
 #install helper apps
-#mkdir -p %{buildroot}%{_datadir}/%{name}/res/{7z,upx}
-#ln -s %{_bindir}/7z  %{buildroot}%{_datadir}/%{name}/res/7z
-#ln -s %{_bindir}/upx  %{buildroot}%{_datadir}/%{name}/res/upx
-#ln -s %{_bindir}/zstd %{buildroot}%{_datadir}/%{name}/res/bin/zstd/zstd
-#ln -s %{_bindir}/brotli %{buildroot}%{_datadir}/%{name}/res/bin/brotli/brotli
+mkdir -p %{buildroot}%{_datadir}/%{name}/res/bin/{7z,upx}
+ln -s %{_bindir}/7z  %{buildroot}%{_datadir}/%{name}/res/bin/7z/7z
+ln -s %{_bindir}/upx  %{buildroot}%{_datadir}/%{name}/res/bin/upx/upx
 
 install dev/pea %{buildroot}%{_datadir}/%{name}/res
 ln -s %{_datadir}/%{name}/res/pea %{buildroot}%{_bindir}/pea
