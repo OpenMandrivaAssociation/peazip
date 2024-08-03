@@ -1,5 +1,6 @@
---- peazip-9.7.1.src/dev/project_pea.lpi.orig	2024-02-29 17:11:22.714091347 +0000
-+++ peazip-9.7.1.src/dev/project_pea.lpi	2024-02-29 17:12:07.798599355 +0000
+diff -up peazip-9.9.0.src/dev/project_pea.lpi.1~ peazip-9.9.0.src/dev/project_pea.lpi
+--- peazip-9.9.0.src/dev/project_pea.lpi.1~	2024-08-03 19:51:56.649950823 +0200
++++ peazip-9.9.0.src/dev/project_pea.lpi	2024-08-03 19:52:28.134376832 +0200
 @@ -28,13 +28,10 @@
          <Mode0 Name="default"/>
        </Modes>
@@ -14,10 +15,11 @@
 -      </Item2>
 +      </Item1>
      </RequiredPackages>
-     <Units Count="52">
+     <Units Count="53">
        <Unit0>
---- peazip-9.7.1.src/dev/project_peach.lpi.orig	2024-02-29 17:11:33.591731316 +0000
-+++ peazip-9.7.1.src/dev/project_peach.lpi	2024-02-29 17:11:52.869093354 +0000
+diff -up peazip-9.9.0.src/dev/project_peach.lpi.1~ peazip-9.9.0.src/dev/project_peach.lpi
+--- peazip-9.9.0.src/dev/project_peach.lpi.1~	2024-08-03 19:51:56.649950823 +0200
++++ peazip-9.9.0.src/dev/project_peach.lpi	2024-08-03 19:52:56.902801434 +0200
 @@ -29,21 +29,18 @@
          <Mode0 Name="default"/>
        </Modes>
@@ -43,5 +45,5 @@
 -      </Item4>
 +      </Item3>
      </RequiredPackages>
-     <Units Count="200">
+     <Units Count="201">
        <Unit0>
