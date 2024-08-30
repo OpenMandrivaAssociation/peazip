@@ -2,12 +2,12 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	9.9.0
+Version:	9.9.1
 Release:	1
 License:	LGPLv3+
 Group:		File tools
-Url:		http://peazip.sourceforge.net/peazip-linux.html
-Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.src.zip
+Url:		https://peazip.sourceforge.net/peazip-linux.html
+Source0:	https://download.sourceforge.net/%{name}/%{name}-%{version}.src.zip
 # configure to run in users home appdata
 Source1:	altconf.txt
 # remove metadark dep as per instructions as it is unused on linux
