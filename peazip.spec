@@ -11,7 +11,7 @@ Source0:	https://download.sourceforge.net/%{name}/%{name}-%{version}.src.zip
 # configure to run in users home appdata
 Source1:	altconf.txt
 # remove metadark dep as per instructions as it is unused on linux
-Patch1:		metadark.patch
+#Patch1:		metadark.patch
 # use qt5 workarounds on qt6 to avoid crashes
 Patch2:		qt6.patch
 BuildRequires:	dos2unix
@@ -53,7 +53,7 @@ lazbuild --lazarusdir=%{_libdir}/lazarus \
 	--cpu=x86_64 \
 %endif
 	--widgetset=qt6 \
-	-B project_peach.lpi project_pea.lpi
+	-B project_peach.lpi project_pea.lpi metadarkstyle/metadarkstyle.lpk
 
 %install
 mkdir -p %{buildroot}%{_bindir}
