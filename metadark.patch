@@ -1,12 +1,9 @@
-diff -up peazip-9.9.0.src/dev/project_pea.lpi.1~ peazip-9.9.0.src/dev/project_pea.lpi
---- peazip-9.9.0.src/dev/project_pea.lpi.1~	2024-08-03 19:51:56.649950823 +0200
-+++ peazip-9.9.0.src/dev/project_pea.lpi	2024-08-03 19:52:28.134376832 +0200
-@@ -28,13 +28,10 @@
-         <Mode0 Name="default"/>
-       </Modes>
+diff -up peazip-10.0.0.src/dev/project_pea.lpi.omv~ peazip-10.0.0.src/dev/project_pea.lpi
+--- peazip-10.0.0.src/dev/project_pea.lpi.omv~	2024-10-28 16:32:35.754194772 +0100
++++ peazip-10.0.0.src/dev/project_pea.lpi	2024-10-28 16:32:45.334302872 +0100
+@@ -30,11 +30,8 @@
      </RunParams>
--    <RequiredPackages Count="2">
-+    <RequiredPackages Count="1">
+     <RequiredPackages Count="2">
        <Item1>
 -        <PackageName Value="MetaDarkStyle"/>
 -      </Item1>
@@ -15,17 +12,14 @@ diff -up peazip-9.9.0.src/dev/project_pea.lpi.1~ peazip-9.9.0.src/dev/project_pe
 -      </Item2>
 +      </Item1>
      </RequiredPackages>
-     <Units Count="53">
+     <Units Count="55">
        <Unit0>
-diff -up peazip-9.9.0.src/dev/project_peach.lpi.1~ peazip-9.9.0.src/dev/project_peach.lpi
---- peazip-9.9.0.src/dev/project_peach.lpi.1~	2024-08-03 19:51:56.649950823 +0200
-+++ peazip-9.9.0.src/dev/project_peach.lpi	2024-08-03 19:52:56.902801434 +0200
-@@ -29,21 +29,18 @@
-         <Mode0 Name="default"/>
-       </Modes>
+diff -up peazip-10.0.0.src/dev/project_peach.lpi.omv~ peazip-10.0.0.src/dev/project_peach.lpi
+--- peazip-10.0.0.src/dev/project_peach.lpi.omv~	2024-10-28 16:32:03.703833105 +0100
++++ peazip-10.0.0.src/dev/project_peach.lpi	2024-10-28 16:32:17.483988607 +0100
+@@ -31,19 +31,16 @@
      </RunParams>
--    <RequiredPackages Count="4">
-+    <RequiredPackages Count="3">
+     <RequiredPackages Count="4">
        <Item1>
 -        <PackageName Value="MetaDarkStyle"/>
 -      </Item1>
@@ -45,5 +39,5 @@ diff -up peazip-9.9.0.src/dev/project_peach.lpi.1~ peazip-9.9.0.src/dev/project_
 -      </Item4>
 +      </Item3>
      </RequiredPackages>
-     <Units Count="201">
+     <Units Count="202">
        <Unit0>
