@@ -1,33 +1,37 @@
-diff -up peazip-10.0.0.src/dev/project_pea.lpi.omv~ peazip-10.0.0.src/dev/project_pea.lpi
---- peazip-10.0.0.src/dev/project_pea.lpi.omv~	2024-10-28 16:32:35.754194772 +0100
-+++ peazip-10.0.0.src/dev/project_pea.lpi	2024-10-28 16:32:45.334302872 +0100
-@@ -30,11 +30,8 @@
+--- a/dev/project_pea.lpi
++++ b/dev/project_pea.lpi
+@@ -28,13 +28,10 @@
+         <Mode0 Name="default"/>
+       </Modes>
      </RunParams>
-     <RequiredPackages Count="2">
+-    <RequiredPackages Count="2">
++    <RequiredPackages Count="1">
        <Item1>
 -        <PackageName Value="MetaDarkStyle"/>
--      </Item1>
++        <PackageName Value="LCL"/>
+       </Item1>
 -      <Item2>
-         <PackageName Value="LCL"/>
+-        <PackageName Value="LCL"/>
 -      </Item2>
-+      </Item1>
      </RequiredPackages>
-     <Units Count="55">
+     <Units Count="66">
        <Unit0>
-diff -up peazip-10.0.0.src/dev/project_peach.lpi.omv~ peazip-10.0.0.src/dev/project_peach.lpi
---- peazip-10.0.0.src/dev/project_peach.lpi.omv~	2024-10-28 16:32:03.703833105 +0100
-+++ peazip-10.0.0.src/dev/project_peach.lpi	2024-10-28 16:32:17.483988607 +0100
-@@ -31,19 +31,16 @@
+--- a/dev/project_peach.lpi
++++ b/dev/project_peach.lpi
+@@ -29,21 +29,18 @@
+         <Mode0 Name="default"/>
+       </Modes>
      </RunParams>
-     <RequiredPackages Count="4">
+-    <RequiredPackages Count="4">
++    <RequiredPackages Count="3">
        <Item1>
 -        <PackageName Value="MetaDarkStyle"/>
--      </Item1>
--      <Item2>
-         <PackageName Value="SynEdit"/>
-         <MinVersion Major="1" Valid="True"/>
-+      </Item1>
-+      <Item2>
++        <PackageName Value="SynEdit"/>
++        <MinVersion Major="1" Valid="True"/>
+       </Item1>
+       <Item2>
+-        <PackageName Value="SynEdit"/>
+-        <MinVersion Major="1" Valid="True"/>
 +        <PackageName Value="LCL"/>
        </Item2>
        <Item3>
@@ -39,5 +43,5 @@ diff -up peazip-10.0.0.src/dev/project_peach.lpi.omv~ peazip-10.0.0.src/dev/proj
 -      </Item4>
 +      </Item3>
      </RequiredPackages>
-     <Units Count="202">
+     <Units Count="221">
        <Unit0>
