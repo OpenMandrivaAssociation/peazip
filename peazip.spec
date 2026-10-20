@@ -2,8 +2,8 @@
 
 Summary:	File and archive manager
 Name:		peazip
-Version:	11.3.0
-Release:	2
+Version:	11.4.0
+Release:	1
 License:	LGPLv3+
 Group:		File tools
 Url:		https://peazip.sourceforge.net/peazip-linux.html

@@ -8,13 +8,13 @@
 +    <RequiredPackages Count="1">
        <Item1>
 -        <PackageName Value="MetaDarkStyle"/>
-+        <PackageName Value="LCL"/>
-       </Item1>
+-      </Item1>
 -      <Item2>
--        <PackageName Value="LCL"/>
+         <PackageName Value="LCL"/>
 -      </Item2>
++      </Item1>
      </RequiredPackages>
-     <Units Count="66">
+     <Units Count="73">
        <Unit0>
 --- a/dev/project_peach.lpi
 +++ b/dev/project_peach.lpi
@@ -26,12 +26,12 @@
 +    <RequiredPackages Count="3">
        <Item1>
 -        <PackageName Value="MetaDarkStyle"/>
-+        <PackageName Value="SynEdit"/>
-+        <MinVersion Major="1" Valid="True"/>
-       </Item1>
-       <Item2>
--        <PackageName Value="SynEdit"/>
--        <MinVersion Major="1" Valid="True"/>
+-      </Item1>
+-      <Item2>
+         <PackageName Value="SynEdit"/>
+         <MinVersion Major="1" Valid="True"/>
++      </Item1>
++      <Item2>
 +        <PackageName Value="LCL"/>
        </Item2>
        <Item3>
@@ -43,5 +43,5 @@
 -      </Item4>
 +      </Item3>
      </RequiredPackages>
-     <Units Count="221">
+     <Units Count="222">
        <Unit0>
